@@ -1,0 +1,92 @@
+<html>
+<head>
+  <title>Registration Page</title>
+  <script type="text/javascript">
+    function validate()
+    {
+      var name=document.forms["f1"]["t1"].value;
+      var uname=document.forms["f1"]["t2"].value;
+      var pass=document.forms["f1"]["t3"].value;
+      var mno=document.forms["f1"]["t4"].value;
+      var email=document.forms["f1"]["t5"].value;
+      var regexp=/^[a-zA-Z ]+$/;
+      var regexp_user=/^[a-zA-Z0-9]+$/;
+      var regexp_mno=/^[0-9]+$/;
+      var regexp_email=/^[a-zA-Z0-9]+@+[a-z]+.+[a-z]+$/
+      if (name==''||uname==''||mno==''||email=='')
+      {
+        alert("Please fill all the details");
+        return false;
+      }
+      else if(name.length<5)
+      {
+        alert("Name should be atleast 5 characters");
+        return false;
+      }
+      else if(!regexp.test(name))
+      {
+        alert("Name should not contain special symbols");
+        return false;
+      }
+      else if(!regexp_user.test(uname))
+      {
+        alert("User name should not contain special symbols");
+        return false;
+      }
+
+      else if(mno.length!=10)
+      {
+        alert("mobile number should contain exactly 10 digits");
+        return false;
+      }
+      else if(!regexp_mno.test(mno))
+      {
+        alert("mobile number should contain only digits");
+        return false
+      }
+      else if(!regexp_email.test(email))
+      {
+        alert("email is not valid");
+        return false;
+      }
+      return true;
+    }
+   </script>
+ </head>
+ <body class="center">
+   <div class="main">
+   <form action="login.html" method="post" name="f1" onsubmit="return validate()">
+   <table>
+      <tr>
+         <td>Name:</td>
+         <td><input type="text" name="t1"/></td>
+      </tr>
+      <tr>
+        <td>User Name:</td>
+         <td><input type="text" name="t2"/></td>
+      </tr>
+      <tr>
+        <td>Password:</td>
+         <td><input type="Password" name="t3"/></td>
+      </tr>
+      <tr>
+        <td>Gender:</td>
+        <td><input type="radio" name="gender" required>Male
+          <input type="radio" name="gender" required>Female</td>
+      </tr>
+      <tr>
+        <td>Mobile Number:</td>
+        <td><input type="text" name="t4"/></td>
+      </tr>
+      <tr>
+        <td>E-Mail Address:</td>
+        <td><input type="text" name="t5"/></td>
+      </tr>
+      <tr>
+        <td><input type="Submit" name="save" value="Save"/></td>
+      </tr>
+    </table>
+</form>
+</div>
+</body>
+</html>
